@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\ContactsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,13 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'all']);
+Route::get('/contacts', [ContactsController::class, 'all']);
 
-Route::get('/contact/{id}', [\App\Http\Controllers\ContactsController::class, 'one']);
+Route::get('/contact/{id}', [ContactsController::class, 'one']);
 
-Route::post('/contact', [\App\Http\Controllers\ContactsController::class, 'insert']);
+Route::post('/contact', [ContactsController::class, 'insert']);
 
-Route::put('/contact/{id}', [\App\Http\Controllers\ContactsController::class, 'edit']);
+Route::put('/contact/{id}', [ContactsController::class, 'edit']);
 
-Route::delete('/contact/{id}', [\App\Http\Controllers\ContactsController::class, 'delete']);
+Route::delete('/contact/{id}', [ContactsController::class, 'delete']);
 
